@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Fly. All rights reserved.
 //
 
-#import "AFHTTPSessionManager.h"
+#import "AFNetworking.h"
 
 @interface SQHTTPSessionManager : AFHTTPSessionManager
 
