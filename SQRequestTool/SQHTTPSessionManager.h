@@ -10,7 +10,7 @@
 
 @interface SQHTTPSessionManager : AFHTTPSessionManager
 
-+ (AFHTTPSessionManager *)sharedRequestManager;
++ (SQHTTPSessionManager *)sharedRequestManager;
 
 + (void)startMonitoring;
 

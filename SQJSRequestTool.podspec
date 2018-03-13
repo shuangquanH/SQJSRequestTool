@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "SQJSRequestTool"
-    s.version      = "0.0.2"
+    s.version      = "0.0.3"
     s.ios.deployment_target = '7.0'
     s.summary      = "janesi network request tool"
     s.homepage     = "https://github.com/shuangquanH/SQJSRequestTool"

@@ -11,12 +11,12 @@
 
 @implementation SQHTTPSessionManager
 
-static AFHTTPSessionManager *manager;
-+ (AFHTTPSessionManager *)sharedRequestManager {
+static SQHTTPSessionManager *manager;
++ (SQHTTPSessionManager *)sharedRequestManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //网络请求单例
-        manager = [AFHTTPSessionManager manager];
+        manager = [SQHTTPSessionManager manager];
         
         //设置超时时间
         manager.requestSerializer.timeoutInterval = SQAsi_API_TIME_OUT;
