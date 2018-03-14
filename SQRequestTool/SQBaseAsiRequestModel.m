@@ -8,6 +8,7 @@
 
 #import "SQBaseAsiRequestModel.h"
 #import "SQAsiNetworkDefine.h"
+#import "YKeychain.h"
 
 @implementation SQBaseAsiRequestModel
 
@@ -26,13 +27,12 @@ static SQBaseAsiRequestModel *model;
 }
 
 - (NSString *)udid {
-    NSString    *saved = [[NSUserDefaults standardUserDefaults] objectForKey:K_UDID];
+    NSString *saved = [YKeychain valueForKey:K_UDID forAccessGroup:K_KEYCHAINACCESSGROUP];
     if (saved) {
         return saved;
     } else {
         NSString    *theUDID = [[NSUUID UUID] UUIDString];
-        [[NSUserDefaults standardUserDefaults] setValue:theUDID forKey:K_UDID];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [YKeychain setValue:theUDID forKey:K_UDID forAccessGroup:K_KEYCHAINACCESSGROUP];
         return theUDID;
     }
 }

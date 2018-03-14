@@ -33,8 +33,10 @@
 
 //存储userid值的key
 #define K_USER_ID @"kUserDefaultUserId"
+//keychain值《保证是同一个证书创建的app,开启keychain sharing，设置以下key值》
+#define K_KEYCHAINACCESSGROUP @"com.janesi.keychaingroup"
 //存储udid值的key
-#define K_UDID @"kUserDefaultUDID"
+#define K_UDID @"kKeychainKeyForUdid"
 
 
 
