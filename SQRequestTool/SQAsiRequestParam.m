@@ -49,10 +49,19 @@
     
     for (int i = 0; i<sorArr.count; i++) {
         NSString    *sortkey = sorArr[i];
-        NSString    *sortValue = dic[sortkey];
-        if (![self isBlankString:sortValue]) {
-            NSString *appendStr = [NSString stringWithFormat:@"%@=%@&", sortkey, sortValue];
-            signStr = [signStr stringByAppendingString:appendStr];
+        id          sortValue = dic[sortkey];
+        if ([sortValue isKindOfClass:[NSArray class]]) {
+            NSArray *sortValueArr = sortValue;
+            for (NSString *arrValue in sortValueArr) {
+                NSString *appendStr = [NSString stringWithFormat:@"%@=%@&", sortkey, arrValue];
+                signStr = [signStr stringByAppendingString:appendStr];
+            }
+        } else {
+            NSString *sortValueStr = sortValue;
+            if (![self isBlankString:sortValueStr]) {
+                NSString *appendStr = [NSString stringWithFormat:@"%@=%@&", sortkey, sortValue];
+                signStr = [signStr stringByAppendingString:appendStr];
+            }
         }
     }
     

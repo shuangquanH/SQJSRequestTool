@@ -24,11 +24,7 @@
     [session GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SQAsiRequestDispose disposeWithResponseObject:responseObject successBlock:result failureBlock:failure];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"api:%@发生错误:%@", api, error);
-        if (failure) {
-            [SVProgressHUD showErrorWithStatus:@"请检查网络"];
-            failure(nil,nil);
-        }
+        [self requestErrorWithApi:api error:error failureblock:failure];
     }];
 }
 
@@ -41,11 +37,7 @@
     [session POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SQAsiRequestDispose disposeWithResponseObject:responseObject successBlock:result failureBlock:failure];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"api:%@发生错误:%@", api, error);
-        if (failure) {
-            [SVProgressHUD showErrorWithStatus:@"请检查网络"];
-            failure(nil,nil);
-        }
+        [self requestErrorWithApi:api error:error failureblock:failure];
     }];
     
 }
@@ -54,22 +46,21 @@
 
 //GET请求
 + (void)getRequestWithApi:(NSString *)api param:(NSDictionary *)dic result:(SQAsiSuccessBlock)result {
-    [self getRequestWithApi:api param:dic result:^(id resultData) {
-        if (result) {
-            result(resultData);
-        }
-    } failure:nil];
+    [self getRequestWithApi:api param:dic result:result failure:nil];
 }
 
 //POST请求
 + (void)postRequestWithApi:(NSString *)api param:(NSDictionary *)dic result:(SQAsiSuccessBlock)result {
-    [self postRequestWithApi:api param:dic result:^(id resultData) {
-        if (result) {
-            result(resultData);
-        }
-    } failure:nil];
+    [self postRequestWithApi:api param:dic result:result failure:nil];
 }
 
++ (void)requestErrorWithApi:(NSString *)api error:(NSError *)error failureblock:(SQAsiFailureBlock)failure {
+    NSLog(@"api:%@发生错误:%@", api, error);
+    if (failure) {
+        [SVProgressHUD showErrorWithStatus:@"请检查网络"];
+        failure(nil,nil);
+    }
+}
 
 
 @end
