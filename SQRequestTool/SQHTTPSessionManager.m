@@ -23,6 +23,7 @@ static SQHTTPSessionManager *manager;
         
         //请求参数格式
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         //响应数据格式
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         
