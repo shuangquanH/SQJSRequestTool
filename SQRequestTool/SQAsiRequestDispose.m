@@ -24,7 +24,10 @@
         }
         
     } else {
-        [SVProgressHUD showErrorWithStatus:errmeg];
+        int codeInt = [code intValue];
+        if (codeInt<2000||codeInt>3999) {
+            [SVProgressHUD showErrorWithStatus:errmeg];
+        }
         if (failure) {
             failure(code, errmeg);
         }

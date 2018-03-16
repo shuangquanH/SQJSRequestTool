@@ -6,8 +6,12 @@
 //  Copyright © 2018年 Fly. All rights reserved.
 //
 
+//网络请求工具类头文件
+
 #ifndef SQAsiNetworkDefine_h
 #define SQAsiNetworkDefine_h
+/** 网络请求工具类 */
+#import "SQRequest.h"
 
 //接口地址
 #define KAPI_ADDRESS @"http://111.231.75.58:8090"
@@ -25,8 +29,7 @@
 #define KAPP_KEY @"ios05100100820180305"
 //appSecret签名使用
 #define KAPP_SECRET @"e1c0c60c248848f4a9dc29b773ffa463"
-
-//md5加密加盐
+//md5加密加盐值
 #define KMD5_YAN @"10"
 
 
