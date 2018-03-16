@@ -10,8 +10,6 @@
 
 #ifndef SQAsiNetworkDefine_h
 #define SQAsiNetworkDefine_h
-/** 网络请求工具类 */
-#import "SQRequest.h"
 
 //接口地址
 #define KAPI_ADDRESS @"http://111.231.75.58:8090"
