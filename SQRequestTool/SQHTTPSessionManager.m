@@ -11,6 +11,7 @@
 
 @implementation SQHTTPSessionManager
 
+
 static SQHTTPSessionManager *manager;
 + (SQHTTPSessionManager *)sharedRequestManager {
     static dispatch_once_t onceToken;
@@ -39,9 +40,29 @@ static SQHTTPSessionManager *manager;
     return manager;
 }
 
+- (NSString *)apiUrl {
+    if (!_apiUrl) {
+        switch (_eclipseType) {
+            case 3://开发
+                _apiUrl = KAPI_DEVELOP_ADDRESS;
+                break;
+            case 2://测试
+                _apiUrl = KAPI_TEST_ADDRESS;
+                break;
+            case 1://预发
+                _apiUrl = KAPI_PREPARE_ADDRESS;
+                break;
+            default://线上
+                _apiUrl = KAPI_PRODUCT_ADDRESS;
+                break;
+        }
+    }
+    return _apiUrl;
+}
+
+
 //网络监测
-+ (void)startMonitoring
-{
++ (void)startMonitoring {
     // 1.获得网络监控的管理者
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     // 2.设置网络状态改变后的处理
@@ -62,7 +83,7 @@ static SQHTTPSessionManager *manager;
                 
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
-                NSLog(@"WIFI");
+                NSLog(@"WIFI网络");
                 
                 break;
         }

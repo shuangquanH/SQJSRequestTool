@@ -11,24 +11,30 @@
 #ifndef SQAsiNetworkDefine_h
 #define SQAsiNetworkDefine_h
 
-//接口地址
-#define KAPI_ADDRESS @"http://111.231.75.58:8090"
-//#define KAPI_ADDRESS @"http://192.168.3.12"
+/** 接口地址：需要在SQRequest类文件里配置 */
 
+//开发环境地址
+#define KAPI_DEVELOP_ADDRESS @"http://10.10.10.60:8090"
+//测试环境接口地址
+#define KAPI_TEST_ADDRESS @"http://111.231.75.58:8090"
+//预发环境地址
+#define KAPI_PREPARE_ADDRESS @"http://111.231.75.58:8090"
+//生产环境地址
+#define KAPI_PRODUCT_ADDRESS @"http://zq.janesi.com"
 
 
 //appId
-#define KAPP_ID @"10010"
+#define KAPI_APP_ID @"10010"
 //apiVersion
 #define KAPI_VERSION @"v1.0.0"
 //OSTYPE
-#define KOS_TYPE @"IOS"
+#define KAPI_OS_TYPE @"IOS"
 //appKey
-#define KAPP_KEY @"ios05100100820180305"
+#define KAPI_APP_KEY @"ios05100100820180305"
 //appSecret签名使用
-#define KAPP_SECRET @"e1c0c60c248848f4a9dc29b773ffa463"
+#define KAPI_APP_SECRET @"e1c0c60c248848f4a9dc29b773ffa463"
 //md5加密加盐值
-#define KMD5_YAN @"10"
+#define KAPI_MD5_YAN @"10"
 
 
 

@@ -9,7 +9,30 @@
 #import <Foundation/Foundation.h>
 #import "SQAsiNetworkDefine.h"
 
+//生产环境地址
+//PRODUCT
+
+//预发环境地址
+//PREPARE
+
+//测试环境接口地址
+//TEST
+
+//开发环境地址
+//DEVELOP
+
+typedef enum : NSUInteger {
+    PRODUCT = 0,
+    PREPARE = 1,
+    TEST = 2,
+    DEVELOP = 3,
+} EclipseType;
+
+
 @interface SQRequest : NSObject
+
+//设置环境,建议在appdelegate初始化的时候设置一次
++ (void)setEclipse:(EclipseType)type;
 
 
 

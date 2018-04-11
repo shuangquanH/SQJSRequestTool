@@ -19,9 +19,9 @@ static SQBaseAsiRequestModel *model;
     dispatch_once(&onceToken, ^{
         model = [[SQBaseAsiRequestModel alloc] init];
         model.apiVersion = KAPI_VERSION;
-        model.appId = KAPP_ID;
-        model.appKey = KAPP_KEY;
-        model.osType = KOS_TYPE;
+        model.appId = KAPI_APP_ID;
+        model.appKey = KAPI_APP_KEY;
+        model.osType = KAPI_OS_TYPE;
     });
     return model;
 }

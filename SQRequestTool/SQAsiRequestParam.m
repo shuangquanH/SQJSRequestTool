@@ -9,6 +9,7 @@
 #import "SQAsiRequestParam.h"
 #import "SQBaseAsiRequestModel.h"
 #import<CommonCrypto/CommonDigest.h>
+#import "SQHTTPSessionManager.h"
 
 
 
@@ -16,7 +17,7 @@
 
 //拼接url
 + (NSString *)requestUrlWithApi:(NSString *)api {
-    return [KAPI_ADDRESS stringByAppendingString:api];
+    return [[SQHTTPSessionManager sharedRequestManager].apiUrl stringByAppendingString:api];
 }
 
 //处理请求参数
@@ -58,7 +59,7 @@
         }
     }
     
-    NSString *appSecretStr = [NSString stringWithFormat:@"appSecret=%@%@", KAPP_SECRET, KMD5_YAN];
+    NSString *appSecretStr = [NSString stringWithFormat:@"appSecret=%@%@", KAPI_APP_SECRET, KAPI_MD5_YAN];
     signStr = [signStr stringByAppendingString:appSecretStr];
     return [self md5:signStr];
 }

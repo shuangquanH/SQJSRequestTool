@@ -10,6 +10,9 @@
 
 @interface SQHTTPSessionManager : AFHTTPSessionManager
 
+@property (nonatomic, assign)   NSInteger       eclipseType;
+@property (nonatomic, copy)     NSString            *apiUrl;
+
 + (SQHTTPSessionManager *)sharedRequestManager;
 
 + (void)startMonitoring;
