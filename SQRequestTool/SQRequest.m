@@ -18,7 +18,11 @@
     [SQHTTPSessionManager startMonitoring];
     [SQHTTPSessionManager sharedRequestManager].eclipseType = type;
 }
-
++ (void)setCustomAddress:(NSString  *)addres {
+    if ([SQHTTPSessionManager sharedRequestManager].eclipseType!=PRODUCT) {
+        [SQHTTPSessionManager sharedRequestManager].apiUrl=addres;
+    }
+}
 //POST请求,带失败回调
 + (void)postRequestWithApi:(NSString *)api param:(NSDictionary *)dic result:(SQAsiSuccessBlock)result failure:(SQAsiFailureBlock)failure {
     AFHTTPSessionManager    *session = [SQHTTPSessionManager sharedRequestManager];

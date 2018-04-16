@@ -14,11 +14,11 @@
 /** 接口地址：需要在SQRequest类文件里配置 */
 
 //开发环境地址
-#define KAPI_DEVELOP_ADDRESS @"http://10.10.10.60:8090"
+#define KAPI_DEVELOP_ADDRESS @"http://111.231.75.58:8090"
 //测试环境接口地址
-#define KAPI_TEST_ADDRESS @"http://111.231.75.58:8090"
+#define KAPI_TEST_ADDRESS @"http://118.25.0.170:8090"
 //预发环境地址
-#define KAPI_PREPARE_ADDRESS @"http://111.231.75.58:8090"
+#define KAPI_PREPARE_ADDRESS @"http://118.25.0.170:8090"
 //生产环境地址
 #define KAPI_PRODUCT_ADDRESS @"http://zq.janesi.com"
 
